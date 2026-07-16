@@ -1,0 +1,27 @@
+name: Replace IP with CF Format
+
+on:
+  push:
+    paths:
+      - 'ipv6.txt'  # 这里改为你要监控的文件名
+
+jobs:
+  replace-ip:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # 必须授予写入权限，以便提交修改
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Replace IP addresses
+        run: |
+          # 使用 sed 命令将每一行替换为目标格式
+          # ^.*# 匹配到 # 号之前的所有内容（即 IP 地址部分），将其替换为固定格式
+          sed -i 's/^.*#/\[2606:4700::\]:2053#/g' ipv6.txt
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto-replace IP to CF format"
+          file_pattern: 'ipv6.txt'
