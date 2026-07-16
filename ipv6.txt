@@ -1,10 +1,10 @@
-2602:f92a:230:d00::a:443#JP-22.78MB/s-AS53808-MoeDove
-2a12:a301:2011::106e:443#JP-21.93MB/s-AS3258-xTom Japan Corporation
-2a14:7586:6109:1::14d:8443#JP-19.36MB/s-AS206069-Cornseed Limited
-2400:8902::f03c:93ff:fe75:7fd1:443#JP-16.58MB/s-AS63949-Akamai Connected Cloud
-2407:cdc0:8302:a41f:5a1e:ede4:3280:10c2:443#JP-16.01MB/s-AS38136-Akari Networks
-2a12:a301:2001::10cc:2083#JP-15.69MB/s-AS3258-xTom Japan Corporation
-2a13:edc0:18:2fd::a:443#JP-14.60MB/s-AS216211-Cyberverse LLC
-2a12:a304:4:a64::a:443#JP-12.59MB/s-AS3258-xTom Japan Corporation
-2400:8902::2000:f7ff:feb0:af46:443#JP-10.39MB/s-AS63949-Akamai Connected Cloud
-2400:38e0:1:4014::b:443#JP-10.15MB/s-AS149042-Silicon Cloud Global (US)
+[2602:f92a:230:d00::a:443]#JP-22.78MB/s-AS53808-MoeDove
+[2a12:a301:2011::106e:443]#JP-21.93MB/s-AS3258-xTom Japan Corporation
+[2a14:7586:6109:1::14d:8443]#JP-19.36MB/s-AS206069-Cornseed Limited
+[2400:8902::f03c:93ff:fe75:7fd1:443]#JP-16.58MB/s-AS63949-Akamai Connected Cloud
+[2407:cdc0:8302:a41f:5a1e:ede4:3280:10c2:443]#JP-16.01MB/s-AS38136-Akari Networks
+[2a12:a301:2001::10cc:2083]#JP-15.69MB/s-AS3258-xTom Japan Corporation
+[2a13:edc0:18:2fd::a:443]#JP-14.60MB/s-AS216211-Cyberverse LLC
+[2a12:a304:4:a64::a:443]#JP-12.59MB/s-AS3258-xTom Japan Corporation
+[2400:8902::2000:f7ff:feb0:af46:443]#JP-10.39MB/s-AS63949-Akamai Connected Cloud
+[2400:38e0:1:4014::b:443]#JP-10.15MB/s-AS149042-Silicon Cloud Global (US)
