@@ -3,27 +3,28 @@ name: Format IPv6 Addresses
 on:
   push:
     paths:
-      - 'ipv6.txt'  # 监控的文件名。如果你上传的文件不叫 ipv6.txt，请修改这里和下方的文件名
+      - 'ipv6.txt'  # 监控的文件名。如果上传的文件不叫 ipv6.txt，请修改这里
 
 jobs:
   format-ip:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # 赋予写入权限，以便能够向仓库提交修改后的文件
+      contents: write  # 赋予写入权限，以便向仓库提交修改后的文件
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Format IP to Bracket Format
+      - name: Format IP to [IPv6]:Port Format
         run: |
-          # 检查文件中是否存在未加中括号的行
-          # 1. '/^\[/!'：如果行首不是 '['，才执行替换，防止重复处理
-          # 2. '^([^#]+)#'：匹配 '#' 之前的所有内容（即 IP:端口 整体），存入 \1
-          # 3. '[\1]#'：将其包装为 [IP:端口]# 格式，保留后面的所有测速和运营商后缀
-          sed -i -E '/^\[/! s/^([^#]+)#/[\1]#/g' ipv6.txt
+          # 1. '/^\[/!'：如果行首已经有 '[' 则跳过，防止重复格式化
+          # 2. '^([^#]+):([0-9]+)#'：将 '#' 号前的部分拆分为：
+          #    - \1: IPv6 地址本身（最后一个冒号前的所有内容）
+          #    - \2: 最后的端口号（冒号后面的数字）
+          # 3. '[\1]:\2#'：重新拼接为 [IPv6]:端口# 后缀 格式
+          sed -i -E '/^\[/! s/^([^#]+):([0-9]+)#/[\1]:\2#/g' ipv6.txt
 
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: auto-format IPv6 addresses to [IP:Port] format"
+          commit_message: "chore: auto-format IPv6 to [IP]:Port format"
           file_pattern: 'ipv6.txt'
